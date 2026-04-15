@@ -1,0 +1,20 @@
+:host {
+    display: contents;
+}
+
+.constructor-container {
+    height: calc(100vh - 20px - 60px - 10px);
+    width: 100%;
+    display: flex;
+    gap: 0;
+
+    &.resizing {
+        cursor: col-resize;
+        user-select: none;
+
+        app-items-list,
+        app-item-forms {
+            pointer-events: none;
+        }
+    }
+}

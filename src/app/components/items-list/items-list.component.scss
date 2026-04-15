@@ -1,0 +1,26 @@
+:host {
+    display: contents;
+}
+
+.items-list-container {
+    min-width: 500px;
+    flex-shrink: 0;
+    height: calc(100vh - 20px - 60px - 10px);    
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-height: 0;
+
+    app-search-list {
+        flex: 0 0 auto;
+        width: 100%;
+        min-height: 48px;
+        height: 52px;
+    }
+
+    app-list {
+        flex: 1;
+        min-height: 0;
+    }
+}
