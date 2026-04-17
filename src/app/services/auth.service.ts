@@ -3,13 +3,14 @@ import { inject, Injectable, signal } from "@angular/core";
 import { Router } from '@angular/router';
 import { Observable, shareReplay, tap, finalize } from "rxjs";
 import { AuthUser } from "../interfaces/user.interface";
+import { environment } from "../../environments/environment";
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
     private readonly http = inject(HttpClient);
     private readonly router = inject(Router);
 
-    private readonly apiUrl = 'http://localhost:3000/api/auth';
+    private readonly apiUrl = `${environment.apiUrl}/auth`;
 
     private readonly tokenSignal = signal<string | null>(null);
     private readonly userSignal = signal<AuthUser | null>(null);

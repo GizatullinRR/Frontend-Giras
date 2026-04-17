@@ -3,11 +3,12 @@ import { HttpClient, HttpParams } from "@angular/common/http";
 import { firstValueFrom } from "rxjs";
 import { Workwear } from "../interfaces/workwear.interface";
 import { Items } from "../types/item.type";
+import { environment } from "../../environments/environment";
 
 @Injectable({ providedIn: 'root' })
 export class WorkwearService {
     private readonly http = inject(HttpClient);
-    private readonly apiUrl = 'http://localhost:3000/api/workwear';
+    private readonly apiUrl = `${environment.apiUrl}/workwear`;
 
     getAll(search: string): Promise<Items> {
         let params = new HttpParams();
