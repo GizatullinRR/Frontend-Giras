@@ -59,7 +59,7 @@ export class CreateWorkwearFormComponent {
             Validators.pattern(/^[\p{L}0-9_-]+$/u)
         ]],
         isCertified: [false],
-        material: ['', [Validators.required, Validators.maxLength(100)]]
+        material: ['', Validators.required]
     });
 
     constructor() {
