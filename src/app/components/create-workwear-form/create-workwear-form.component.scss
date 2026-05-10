@@ -114,16 +114,60 @@
     .checkbox-label {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       font-size: 14px;
       cursor: pointer;
       color: v.$blue-4;
+      width: fit-content;
+      padding: 8px 12px;
+      border: 1px solid v.$blue-1;
+      border-radius: 10px;
+      background: rgba(37, 50, 58, 0.45);
+      transition: border-color 0.2s, background-color 0.2s;
+
+      &:hover {
+        border-color: v.$blue-2;
+        background: rgba(37, 50, 58, 0.72);
+      }
 
       input[type="checkbox"] {
-        width: 16px;
-        height: 16px;
+        appearance: none;
+        -webkit-appearance: none;
+        width: 18px;
+        height: 18px;
+        border-radius: 6px;
+        border: 1.5px solid v.$blue-2;
+        background: rgba(13, 19, 23, 0.8);
+        display: grid;
+        place-items: center;
+        position: relative;
         cursor: pointer;
-        accent-color: v.$blue-3;
+        transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+
+        &::after {
+          content: '';
+          width: 8px;
+          height: 4px;
+          border-left: 2px solid v.$text-on-accent;
+          border-bottom: 2px solid v.$text-on-accent;
+          transform: rotate(-45deg) translateY(-1px);
+          opacity: 0;
+          transition: opacity 0.15s ease;
+        }
+
+        &:checked {
+          background: v.$blue-3;
+          border-color: v.$blue-3;
+        }
+
+        &:checked::after {
+          opacity: 1;
+        }
+
+        &:focus-visible {
+          outline: none;
+          box-shadow: 0 0 0 3px rgba(56, 193, 143, 0.25);
+        }
       }
     }
 
