@@ -40,9 +40,18 @@
                         </div>
 
                         <div class="item-sub">
-                            <div class="color-dot"></div>
-                            <span class="item-color">{{ item.color }}</span>
-                            <span class="item-category">{{ item.category }}</span>
+                            <span class="meta-chip color-chip">
+                                <span class="color-dot"></span>
+                                <span class="chip-text">{{ item.color }}</span>
+                            </span>
+                            <span class="meta-chip set-chip">
+                                <span class="chip-label">Комплект</span>
+                                <span class="chip-text">{{ item.set }}</span>
+                            </span>
+                            <span class="meta-chip category-chip">
+                                <span class="chip-label">Категория</span>
+                                <span class="chip-text">{{ item.category }}</span>
+                            </span>
                         </div>
                     </div>
                 }

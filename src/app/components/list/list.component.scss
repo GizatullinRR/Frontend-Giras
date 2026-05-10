@@ -170,42 +170,61 @@
 
     .item-sub {
       display: flex;
-      align-items: center;
+      align-items: stretch;
       gap: 6px;
-      padding: 6px 12px 8px 40px;
-      background-color: rgba(37, 50, 58, 0.8);
+      flex-wrap: wrap;
+      padding: 7px 12px 9px 40px;
+      background-color: rgba(37, 50, 58, 0.64);
+      border-top: 1px solid rgba(143, 181, 168, 0.12);
 
-      .color-dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background-color: v.$blue-1;
-        flex-shrink: 0;
-        border: 1px solid rgba(0, 0, 0, 0.08);
+      .meta-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        min-width: 0;
+        border: 1px solid rgba(143, 181, 168, 0.24);
+        background: rgba(13, 19, 23, 0.42);
+        border-radius: 999px;
+        padding: 3px 8px;
       }
 
-      .item-color {
+      .chip-label {
+        font-size: 10px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: rgba(194, 214, 207, 0.78);
+        flex-shrink: 0;
+      }
+
+      .chip-text {
         font-size: 12px;
         color: v.$text-secondary;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        display: block;
-        flex-shrink: 0;
-        max-width: 42%;
       }
 
-      .item-category {
-        font-size: 11px;
-        color: v.$text-secondary;
-        min-width: 0;
+      .color-chip {
+        max-width: 34%;
+        flex-shrink: 0;
+      }
+
+      .set-chip {
         flex: 1;
-        text-align: right;
-        line-height: 1.25;
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
+      }
+
+      .category-chip {
+        max-width: 38%;
+        flex-shrink: 0;
+      }
+
+      .color-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: v.$blue-2;
+        flex-shrink: 0;
+        border: 1px solid rgba(0, 0, 0, 0.18);
       }
     }
   }
