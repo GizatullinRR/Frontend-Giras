@@ -45,17 +45,16 @@ export class CreateWorkwearFormComponent {
     readonly isEditMode = this.tabService.activeTab;
 
     workwearForm = this.fb.group({
-        name: ['', [Validators.required, Validators.maxLength(200)]],
+        name: ['', [Validators.required]],
         description: [''],
         category: ['', Validators.required],
         size: [[] as string[], Validators.required],
-        color: ['', [Validators.required, Validators.maxLength(100)]],
+        color: ['', [Validators.required]],
         season: ['', Validators.required],
         set: ['', Validators.required],
         price: ['', [Validators.required, Validators.min(0.01)]],
         sku: ['', [
             Validators.required,
-            Validators.maxLength(50),
             Validators.pattern(/^[\p{L}0-9_-]+$/u)
         ]],
         isCertified: [false],
@@ -201,9 +200,6 @@ export class CreateWorkwearFormComponent {
                 material: 'Материал обязателен',
             };
             return labels[field] ?? 'Поле обязательно';
-        }
-        if (control.errors['maxlength']) {
-            return `Не более ${control.errors['maxlength'].requiredLength} символов`;
         }
         if (control.errors['min']) return 'Цена должна быть больше 0';
         if (control.errors['pattern']) return 'Буквы (в т.ч. кириллица), цифры, дефис и подчёркивание';
