@@ -7,17 +7,21 @@ export const authGuard: CanActivateFn = () => {
     const authService = inject(AuthService);
     const router = inject(Router);
 
-    if (authService.isAuthenticated()) {
-        if (authService.currentUser()?.role !== 'admin') {
+    const cached = authService.currentUser();
+    if (cached) {
+        if (cached.role !== 'admin') {
             router.navigate(['/login']);
             return false;
         }
         return true;
     }
 
-    return authService.refresh().pipe(
-        switchMap(() => authService.getMe()),
-        map(user => {
+    const session$ = authService.getMe().pipe(
+        catchError(() => authService.refresh().pipe(switchMap(() => authService.getMe())))
+    );
+
+    return session$.pipe(
+        map((user) => {
             if (user.role !== 'admin') {
                 router.navigate(['/login']);
                 return false;

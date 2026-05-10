@@ -12,26 +12,21 @@ export class AuthService {
 
     private readonly apiUrl = `${environment.apiUrl}/auth`;
 
-    private readonly tokenSignal = signal<string | null>(null);
     private readonly userSignal = signal<AuthUser | null>(null);
 
-    readonly accessToken = this.tokenSignal.asReadonly();
     readonly currentUser = this.userSignal.asReadonly();
 
-    private refreshInProgress$: Observable<{ accessToken: string }> | null = null;
+    private refreshInProgress$: Observable<{ ok: boolean }> | null = null;
 
     login(dto: { email: string; password: string }) {
-        return this.http.post<{ accessToken: string }>(`${this.apiUrl}/login`, dto, { withCredentials: true }).pipe(
-            tap(res => this.tokenSignal.set(res.accessToken))
-        );
+        return this.http.post<{ ok: boolean }>(`${this.apiUrl}/login`, dto);
     }
 
-    refresh(): Observable<{ accessToken: string }> {
+    refresh(): Observable<{ ok: boolean }> {
         if (!this.refreshInProgress$) {
             this.refreshInProgress$ = this.http
-                .post<{ accessToken: string }>(`${this.apiUrl}/refresh`, {}, { withCredentials: true })
+                .post<{ ok: boolean }>(`${this.apiUrl}/refresh`, {})
                 .pipe(
-                    tap(res => this.tokenSignal.set(res.accessToken)),
                     finalize(() => this.refreshInProgress$ = null),
                     shareReplay(1)
                 );
@@ -40,7 +35,7 @@ export class AuthService {
     }
 
     logout() {
-        return this.http.post(`${this.apiUrl}/logout`, {}, { withCredentials: true }).pipe(
+        return this.http.post<{ message: string }>(`${this.apiUrl}/logout`, {}).pipe(
             tap(() => {
                 this.clearAuth();
                 this.router.navigate(['/login']);
@@ -54,12 +49,7 @@ export class AuthService {
         );
     }
 
-    isAuthenticated(): boolean {
-        return !!this.accessToken();
-    }
-
     clearAuth(): void {
-        this.tokenSignal.set(null);
         this.userSignal.set(null);
     }
 }

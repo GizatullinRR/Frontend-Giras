@@ -6,6 +6,7 @@ import { provideStoreDevtools } from '@ngrx/store-devtools';
 
 import { routes } from './app.routes';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { credentialsInterceptor } from './interceptors/credentials.interceptor';
 import { authInterceptor } from './interceptors/auth.interceptor';
 import { ItemsEffects } from './store/items/items.effects';
 import { itemsFeature } from './store/items/items.reducer';
@@ -15,7 +16,7 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    provideHttpClient(withInterceptors([authInterceptor])),
+    provideHttpClient(withInterceptors([credentialsInterceptor, authInterceptor])),
     provideStore(),
     provideState(itemsFeature),
     provideEffects(ItemsEffects),
