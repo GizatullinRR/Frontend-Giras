@@ -4,7 +4,7 @@ import { CategoryService } from "../../services/category.service";
 import { FormStateService } from "../../services/form.service";
 import { TabService } from "../../services/tab.service";
 import { ItemsSearchQueryService } from "../../services/items-search-query.service";
-import { Copy, LucideAngularModule, Trash2 } from "lucide-angular";
+import { Copy, LucideAngularModule, ShieldCheck, Trash2 } from "lucide-angular";
 import { Item } from "../../types/item.type";
 import * as ItemsActions from "../../store/items/items.actions";
 import { itemsFeature } from "../../store/items/items.reducer";
@@ -31,6 +31,7 @@ export class ListComponent implements OnDestroy {
 
     readonly Trash2 = Trash2;
     readonly Copy = Copy;
+    readonly ShieldCheck = ShieldCheck;
 
     readonly listRef = viewChild<ElementRef<HTMLElement>>('listRef');
 

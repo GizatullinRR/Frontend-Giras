@@ -118,6 +118,7 @@
       }
 
       .item-name {
+        display: block;
         flex: 1;
         font-size: 14px;
         font-weight: 600;
@@ -170,10 +171,11 @@
 
     .item-sub {
       display: flex;
-      align-items: stretch;
+      align-items: center;
       gap: 6px;
-      flex-wrap: wrap;
-      padding: 7px 12px 9px 40px;
+      flex-wrap: nowrap;
+      min-width: 0;
+      padding: 8px 12px 10px 12px;
       background-color: rgba(37, 50, 58, 0.64);
       border-top: 1px solid rgba(143, 181, 168, 0.12);
 
@@ -182,10 +184,13 @@
         align-items: center;
         gap: 6px;
         min-width: 0;
+        overflow: hidden;
         border: 1px solid rgba(143, 181, 168, 0.24);
         background: rgba(13, 19, 23, 0.42);
         border-radius: 999px;
-        padding: 3px 8px;
+        padding: 4px 9px;
+        min-height: 24px;
+        flex-shrink: 0;
       }
 
       .chip-label {
@@ -197,6 +202,9 @@
       }
 
       .chip-text {
+        display: block;
+        flex: 1;
+        min-width: 0;
         font-size: 12px;
         color: v.$text-secondary;
         white-space: nowrap;
@@ -210,12 +218,29 @@
       }
 
       .set-chip {
-        flex: 1;
+        flex: 1 1 auto;
+        min-width: 0;
+        overflow: hidden;
       }
 
       .category-chip {
-        max-width: 38%;
+        max-width: 30%;
         flex-shrink: 0;
+      }
+
+      .cert-chip {
+        flex-shrink: 0;
+        border-color: rgba(56, 193, 143, 0.45);
+        background: rgba(56, 193, 143, 0.16);
+        color: v.$blue-3;
+
+        .chip-text {
+          color: v.$blue-4;
+          font-size: 10px;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 0.04em;
+        }
       }
 
       .color-dot {

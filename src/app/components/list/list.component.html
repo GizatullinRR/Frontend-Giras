@@ -52,6 +52,12 @@
                                 <span class="chip-label">Категория</span>
                                 <span class="chip-text">{{ item.category }}</span>
                             </span>
+                            @if (item.isCertified) {
+                                <span class="meta-chip cert-chip" title="Минпромторг">
+                                    <lucide-icon [img]="ShieldCheck" [size]="13" />
+                                    <span class="chip-text">Минпром</span>
+                                </span>
+                            }
                         </div>
                     </div>
                 }
