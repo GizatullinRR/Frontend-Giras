@@ -1,3 +1,5 @@
+@use "../../../styles.scss" as v;
+
 :host {
     display: contents;
 }
@@ -20,14 +22,14 @@
         left: 50%;
         transform: translateX(-50%);
         width: 2px;
-        background-color: #e0e0e0;
+        background-color: rgba(143, 181, 168, 0.26);
         transition: background-color 0.2s, width 0.2s;
     }
 
     &:hover::before,
     &:active::before {
         width: 3px;
-        background-color: #7E9DED;
+        background-color: v.$blue-2;
     }
 
     .resize-handle-inner {
@@ -37,8 +39,8 @@
         z-index: 1;
         padding: 4px 5px;
         border-radius: 6px;
-        background: #f0f0f0;
-        border: 1px solid #ddd;
+        background: #1a242b;
+        border: 1px solid rgba(143, 181, 168, 0.2);
         transition: background-color 0.2s, border-color 0.2s, opacity 0.2s;
         opacity: 0;
 
@@ -47,18 +49,18 @@
             width: 3px;
             height: 3px;
             border-radius: 50%;
-            background-color: #999;
+            background-color: rgba(143, 181, 168, 0.6);
             transition: background-color 0.2s;
         }
     }
 
     &:hover .resize-handle-inner {
         opacity: 1;
-        background-color: #fff;
-        border-color: #7E9DED;
+        background-color: #202c34;
+        border-color: v.$blue-2;
 
         span {
-            background-color: #7E9DED;
+            background-color: v.$blue-2;
         }
     }
 }

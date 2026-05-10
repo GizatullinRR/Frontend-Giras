@@ -35,7 +35,7 @@
     white-space: nowrap;
 
     &.placeholder {
-      color: v.$blue-1;
+      color: v.$text-secondary;
     }
   }
 
@@ -76,7 +76,7 @@
     border: 1px solid v.$blue-1;
     border-radius: 8px;
     z-index: 100;
-    box-shadow: 0 4px 16px rgba(5, 24, 71, 0.1);
+    box-shadow: 0 4px 16px rgba(31, 42, 45, 0.12);
     overflow: hidden;
   }
 
@@ -97,22 +97,22 @@
 
     &:hover {
       background-color: v.$blue-1;
-      color: v.$white;
+      color: v.$blue-4;
 
       .checkbox {
-        border-color: v.$white;
+        border-color: v.$blue-4;
       }
     }
 
     &.selected {
-      background-color: rgba(175, 192, 233, 0.3);
+      background-color: rgba(216, 235, 229, 0.6);
       color: v.$blue-3;
       font-weight: 500;
     }
 
     &.selected:hover {
       background-color: v.$blue-1;
-      color: v.$white;
+      color: v.$blue-4;
     }
   }
 
@@ -132,7 +132,7 @@
     &.checked {
       background-color: v.$blue-3;
       border-color: v.$blue-3;
-      color: v.$white;
+      color: v.$text-on-accent;
     }
   }
 }

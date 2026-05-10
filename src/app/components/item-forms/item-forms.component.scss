@@ -9,6 +9,7 @@
     min-width: 500px;
     height: calc(100vh - 20px - 60px - 10px);
     background-color: v.$white;
+    border: 1px solid rgba(143, 181, 168, 0.2);
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -38,7 +39,7 @@
             color: v.$blue-4;
             font-weight: bold;
             font-size: 14px;
-            opacity: 0.4;
+            opacity: 0.72;
             transition: opacity 0.2s ease;
 
             &.active {
@@ -46,11 +47,11 @@
             }
 
             &:not(.active):hover {
-                opacity: 0.7;
+                opacity: 0.9;
             }
 
             &.disabled {
-                opacity: 0.3;
+                opacity: 0.35;
                 cursor: not-allowed;
                 pointer-events: none;
             }

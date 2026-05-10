@@ -16,8 +16,8 @@
 
         label {
             font-size: 13px;
-            font-weight: 500;
-            color: v.$blue-3;
+            font-weight: 600;
+            color: v.$blue-4;
         }
 
         input {
@@ -28,10 +28,11 @@
             outline: none;
             background-color: v.$white;
             color: v.$blue-4;
-            transition: border-color 0.2s;
+            transition: border-color 0.2s, box-shadow 0.2s;
 
             &:focus {
                 border-color: v.$blue-3;
+                box-shadow: 0 0 0 3px rgba(56, 193, 143, 0.2);
             }
         }
 
@@ -46,16 +47,20 @@
 .btn-primary {
     padding: 11px;
     background-color: v.$blue-3;
-    color: v.$white;
+    color: v.$text-on-accent;
     border: none;
     border-radius: 10px;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
-    transition: opacity 0.2s;
+    transition: filter 0.2s, transform 0.12s;
 
     &:hover {
-        opacity: 0.85;
+        filter: brightness(0.94);
+    }
+
+    &:active {
+        transform: translateY(1px);
     }
 
     &:disabled {
